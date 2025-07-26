@@ -21,6 +21,7 @@ import kotlinx.serialization.json.add
 import kotlinx.serialization.json.buildJsonArray
 import net.perfectdreams.custard.Custard
 import net.perfectdreams.harmony.logging.HarmonyLoggerFactory
+import net.sparklypower.sparklymojangapi.config.SparklyMojangAPIConfig
 import net.sparklypower.sparklymojangapi.network.MojangUsernameInfoResponse
 import net.sparklypower.sparklymojangapi.network.UpdateUsernameRequest
 import net.sparklypower.sparklymojangapi.network.UsernameInfoResponse
@@ -34,7 +35,7 @@ import java.time.OffsetDateTime
 import java.time.ZoneId
 import java.util.*
 
-class SparklyMojangAPI {
+class SparklyMojangAPI(val config: SparklyMojangAPIConfig) {
     companion object {
         private val logger by HarmonyLoggerFactory.logger {}
         private val ZONE_ID_UTC = ZoneId.of("UTC")
@@ -51,10 +52,10 @@ class SparklyMojangAPI {
 
     fun start() {
         val custard = Custard.createPostgreSQLPudding(
-            "127.0.0.1",
-            "sparklymojangapi",
-            "postgres",
-            "postgres"
+            config.database.address,
+            config.database.database,
+            config.database.username,
+            config.database.password
         )
 
         runBlocking {

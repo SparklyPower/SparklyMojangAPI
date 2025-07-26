@@ -25,6 +25,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-4")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-hocon:1.9.0")
 
     testImplementation(kotlin("test"))
 }
