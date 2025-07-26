@@ -27,6 +27,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-hocon:1.9.0")
 
+    implementation("com.github.luben:zstd-jni:1.5.7-4")
+
     testImplementation(kotlin("test"))
 }
 
